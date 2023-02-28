@@ -7,7 +7,7 @@ const galleryContainerEl = document.querySelector('.gallery');
 
 const galleryMarkup = createGalleryMarkup(galleryItems);
 
-galleryContainerEl.addEventListener('click', handlerClickImgGallery);
+galleryContainerEl.addEventListener('click', handleClickImgGallery);
 
 galleryContainerEl.insertAdjacentHTML('beforeend', galleryMarkup);
 
@@ -28,7 +28,7 @@ function createGalleryMarkup(items) {
     .join('');
 }
 
-function handlerClickImgGallery(event) {
+function handleClickImgGallery(event) {
   event.preventDefault();
 
   const valueImgLarge = event.target.dataset.source;
@@ -41,17 +41,17 @@ function handlerClickImgGallery(event) {
         `,
     {
       onShow: instance => {
-        window.addEventListener('keydown', handlerKeyEsc);
+        window.addEventListener('keydown', handleKeyEsc);
       },
       onClose: instance => {
-        window.removeEventListener('keydown', handlerKeyEsc);
+        window.removeEventListener('keydown', handleKeyEsc);
       },
     },
   );
 
   instance.show();
 
-  function handlerKeyEsc(event) {
+  function handleKeyEsc(event) {
     if (event.code !== 'Escape') {
       return;
     }
