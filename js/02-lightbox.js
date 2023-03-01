@@ -3,11 +3,6 @@ import { galleryItems } from './gallery-items.js';
 
 console.log(galleryItems);
 
-const lightbox = new SimpleLightbox('.gallery a', {
-  captionsData: 'alt',
-  captionDelay: 250,
-});
-
 const galleryContainerEl = document.querySelector('.gallery');
 
 const galleryMarkup = createGalleryMarkup(galleryItems);
@@ -24,4 +19,7 @@ function createGalleryMarkup(items) {
     .join('');
 }
 
-
+const lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+});
