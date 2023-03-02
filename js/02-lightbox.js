@@ -1,7 +1,7 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
-console.log(galleryItems);
+// console.log(galleryItems);
 
 const galleryContainerEl = document.querySelector('.gallery');
 
@@ -10,11 +10,17 @@ const galleryMarkup = createGalleryMarkup(galleryItems);
 galleryContainerEl.insertAdjacentHTML('beforeend', galleryMarkup);
 
 function createGalleryMarkup(items) {
-  return galleryItems
+  return items
     .map(({ preview, original, description }) => {
-      return `<li><a class="gallery__item" href=${original}" target="_blank">
-  <img class="gallery__image" src="${preview}" alt="${description}" title="${description}" />
-</a></li>`;
+      return `<li>
+  <a class="gallery__item" href="${original}" target="_blank">
+    <img
+      class="gallery__image"
+      src="${preview}"
+      alt="${description}"
+    />
+  </a>
+</li>`;
     })
     .join('');
 }
